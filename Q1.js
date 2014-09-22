@@ -1,3 +1,6 @@
+// 1. Use “each” lambda-style function instead of “for” statement:
+
+
 var sum = 0;
 var arr = [ 41, 12, 32, 344, 15 ];
 for ( var i = 0, l = arr.length; i < l; i++ )
