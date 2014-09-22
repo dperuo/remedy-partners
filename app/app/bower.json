@@ -1,0 +1,13 @@
+{
+  "name": "DerekPeruoFrontend",
+  "version": "0.0.0",
+  "authors": [
+    "dperuo <derek@derekperuo.net>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.25",
+    "bootstrap": "~3.2.0"
+  }
+}
