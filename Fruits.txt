@@ -1,0 +1,10 @@
+throw err
+
+throw new Error(err)
+
+
+Kiwi
+Papaya
+Mango
+Date
+Plum
