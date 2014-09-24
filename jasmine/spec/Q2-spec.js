@@ -5,42 +5,71 @@
 
 describe('Q2: Important Fruit', function() {
 
-  afterEach(function() {
-    expect(isImportantFruit).toBe(true);
-  });
+  describe('sets isImportantFruit as true when fruit is', function() {
 
-  it('sets isImportantFruit as true when fruit is apple', function() {
-    setFruitImportance('apple');
-  });
+    afterEach(function() {
+      expect(isImportantFruit).toBe(true);
+    });
 
-  it('sets isImportantFruit as true when fruit is fig', function() {
-    setFruitImportance('fig');
-  });
+    it('apple', function() {
+      setFruitImportance('apple');
+    });
 
-  it('sets isImportantFruit as true when fruit is kiwi', function() {
-    setFruitImportance('kiwi');
-  });
+    it('fig', function() {
+      setFruitImportance('fig');
+    });
 
-  it('sets isImportantFruit as true when fruit is lemon', function() {
-    setFruitImportance('lemon');
-  });
+    it('kiwi', function() {
+      setFruitImportance('kiwi');
+    });
 
-  it('sets isImportantFruit as true when fruit is mango', function() {
-    setFruitImportance('mango');
-  });
+    it('lemon', function() {
+      setFruitImportance('lemon');
+    });
 
-  it('sets isImportantFruit as true when fruit is orange', function() {
-    setFruitImportance('orange');
-  });
+    it('mango', function() {
+      setFruitImportance('mango');
+    });
 
-  it('sets isImportantFruit as true when fruit is papaya', function() {
-    setFruitImportance('papaya');
-  });
+    it('orange', function() {
+      setFruitImportance('orange');
+    });
 
-  it('sets isImportantFruit as true when fruit is plum', function() {
-    setFruitImportance('plum');
-  });
+    it('papaya', function() {
+      setFruitImportance('papaya');
+    });
 
+    it('plum', function() {
+      setFruitImportance('plum');
+    });
+  })
+
+  describe('sets isImportantFruit as false when fruit is', function() {
+
+    afterEach(function() {
+      expect(isImportantFruit).toBe(false);
+    });
+
+    it('anchovy', function() {
+      setFruitImportance('anchovy');
+    });
+
+    it('a random number', function() {
+      setFruitImportance(Math.random());
+    });
+
+    it('an empty object', function() {
+      setFruitImportance({});
+    });
+
+    it('an empty array', function() {
+      setFruitImportance([]);
+    });
+
+    it('an empty function', function() {
+      setFruitImportance(function (){})
+    });
+  })
 });
 })(); // IIFE
 
