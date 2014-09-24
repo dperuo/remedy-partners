@@ -1,10 +1,14 @@
 // 2. Make code more flexible for changes considering that the list of important fruits
 // will grow, add 5 more fruits as example.
 
-var fruit;
+function testFruitImportance (fruit) {
 
-if (fruit == 'apple' || fruit == 'orange' || fruit == 'lemon') {
-  isImportantFruit = true;
-} else {
-  isImportantFruit = false;
+  var fruitArray = ['apple', 'fig', 'kiwi', 'lemon', 'mango', 'orange', 'papaya', 'plum', ]
+
+  if (fruitArray.indexOf(fruit) !== -1) {
+    return isImportantFruit = true;
+  } else {
+    return isImportantFruit = false;
+  }
 }
+
