@@ -69,6 +69,10 @@ describe('Q2: Important Fruit', function() {
     it('an empty function', function() {
       setFruitImportance(function (){});
     });
+
+    it('undefined', function() {
+      setFruitImportance();
+    });
   });
 });
 })(); // IIFE
