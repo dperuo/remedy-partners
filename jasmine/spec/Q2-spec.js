@@ -1,7 +1,7 @@
 (function() {
 "use strict";
 
-/* global afterEach, describe, expect, isImportantFruit, it, testFruitImportance */
+/* global afterEach, describe, expect, isImportantFruit, it, setFruitImportance */
 
 describe('Q2: Important Fruit', function() {
 
@@ -10,35 +10,35 @@ describe('Q2: Important Fruit', function() {
   });
 
   it('sets isImportantFruit as true when fruit is apple', function() {
-    testFruitImportance('apple');
+    setFruitImportance('apple');
   });
 
   it('sets isImportantFruit as true when fruit is fig', function() {
-    testFruitImportance('fig');
+    setFruitImportance('fig');
   });
 
   it('sets isImportantFruit as true when fruit is kiwi', function() {
-    testFruitImportance('kiwi');
+    setFruitImportance('kiwi');
   });
 
   it('sets isImportantFruit as true when fruit is lemon', function() {
-    testFruitImportance('lemon');
+    setFruitImportance('lemon');
   });
 
   it('sets isImportantFruit as true when fruit is mango', function() {
-    testFruitImportance('mango');
+    setFruitImportance('mango');
   });
 
   it('sets isImportantFruit as true when fruit is orange', function() {
-    testFruitImportance('orange');
+    setFruitImportance('orange');
   });
 
   it('sets isImportantFruit as true when fruit is papaya', function() {
-    testFruitImportance('papaya');
+    setFruitImportance('papaya');
   });
 
   it('sets isImportantFruit as true when fruit is plum', function() {
-    testFruitImportance('plum');
+    setFruitImportance('plum');
   });
 
 });

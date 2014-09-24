@@ -1,7 +1,7 @@
 // 2. Make code more flexible for changes considering that the list of important fruits
 // will grow, add 5 more fruits as example.
 
-function testFruitImportance (fruit) {
+function setFruitImportance (fruit) {
 
   var fruitArray = ['apple', 'fig', 'kiwi', 'lemon', 'mango', 'orange', 'papaya', 'plum'];
 
