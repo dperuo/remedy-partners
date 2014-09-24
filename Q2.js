@@ -3,7 +3,7 @@
 
 function testFruitImportance (fruit) {
 
-  var fruitArray = ['apple', 'fig', 'kiwi', 'lemon', 'mango', 'orange', 'papaya', 'plum', ]
+  var fruitArray = ['apple', 'fig', 'kiwi', 'lemon', 'mango', 'orange', 'papaya', 'plum'];
 
   if (fruitArray.indexOf(fruit) !== -1) {
     return isImportantFruit = true;
@@ -11,4 +11,3 @@ function testFruitImportance (fruit) {
     return isImportantFruit = false;
   }
 }
-
