@@ -42,7 +42,7 @@ describe('Q2: Important Fruit', function() {
     it('plum', function() {
       setFruitImportance('plum');
     });
-  })
+  });
 
   describe('sets isImportantFruit as false when fruit is', function() {
 
@@ -67,9 +67,9 @@ describe('Q2: Important Fruit', function() {
     });
 
     it('an empty function', function() {
-      setFruitImportance(function (){})
+      setFruitImportance(function (){});
     });
-  })
+  });
 });
 })(); // IIFE
 
