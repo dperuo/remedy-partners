@@ -15,8 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '*.js',
-      'jasmine/spec/*-spec.js'
+      'Q1/*.js',
+      'Q2/*.js',
+      'Q3/app/js/**/*.js',
+      'Q1/*-spec.js',
+      'Q2/*-spec.js',
+      'Q3/test/spec/**/*-spec.js',
     ],
 
 
