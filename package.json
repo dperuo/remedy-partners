@@ -18,8 +18,8 @@
   "homepage": "https://github.com/dperuo/remedy-partners",
   "devDependencies": {
     "gulp": "^3.8.8",
+    "gulp-jshint": "^1.8.4",
     "gulp-ruby-sass": "^0.7.1",
-    "gulp-typescript": "^2.0.0",
     "gulp-util": "^3.0.1",
     "karma": "^0.12.23",
     "karma-chrome-launcher": "^0.1.4",

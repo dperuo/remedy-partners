@@ -1,11 +1,11 @@
 (function() {
 "use strict";
 
-var gulp  = require('gulp'),
-    gutil = require('gulp-util'),
-    ts    = require('gulp-typescript'),
-    sass  = require('gulp-ruby-sass'),
-    karma = require('karma').server;
+var gulp   = require('gulp'),
+    gutil  = require('gulp-util'),
+    jshint = require('gulp-jshint'),
+    sass   = require('gulp-ruby-sass'),
+    karma  = require('karma').server;
 
 
 
@@ -13,7 +13,7 @@ var gulp  = require('gulp'),
 var inputs = {
   scss: 'Q3/src/scss/*.scss',
   spec: 'Q3/test/spec/*-spec.js',
-  ts:   'Q3/src/ts/*.ts'
+  js:   'Q3/src/js/*.js'
 };
 
 var outputs = {
@@ -26,7 +26,7 @@ var outputs = {
 // --------------- TASKS --------------- //
 gulp.task('karma', karmaFn);
 gulp.task('scss', scssFn);
-gulp.task('ts', tsFn);
+gulp.task('js', jsFn);
 gulp.task('watch', watchFn);
 gulp.task('default', ['karma', 'watch']);
 
@@ -50,9 +50,11 @@ function scssFn () {
 }
 
 
-function tsFn () {
-  gulp.src(inputs.ts)
-      .pipe(ts())
+function jsFn () {
+  gulp.src(inputs.js)
+      .pipe(jshint())
+      .pipe(jshint.reporter('default'))
+      .pipe(jshint.reporter('fail'))
       .on('error', errorFn)
       .pipe(gulp.dest(outputs.js));
 }
@@ -60,7 +62,7 @@ function tsFn () {
 
 function watchFn () {
   gutil.log(gutil.colors.yellow('Watching...'));
-  gulp.watch(inputs.ts, ['ts']);
+  gulp.watch(inputs.js, ['js']);
 }
 
 
