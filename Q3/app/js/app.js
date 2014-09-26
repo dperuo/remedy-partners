@@ -1,16 +1,5 @@
-(function(){
-"use strict";
+(function() {
 
-/* global angular */
-/* jshint validthis:true */
+  alert('hello world!')
 
-angular
-  .module('app', [])
-  .controller('ctrl', ctrl);
-
-function ctrl() {
-    var vm = this;
-
-
-}
 })(); // IIFE
