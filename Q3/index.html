@@ -1,11 +1,16 @@
-<html>
+<!DOCTYPE html>
+<html ng-app="app">
 <head>
+  <meta charset="utf-8">
+
   <title>DerekPeruoFrontend</title>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
+  <script src="app/js/app.js"></script>
 </head>
-<body>
+<body ng-controller="ctrl as ctrl">
 
+  <h1>{{ctrl.hello}}</h1>
 
-<script type="text/javascript" src="bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="app/js/app.js"></script>
 </body>
 </html>

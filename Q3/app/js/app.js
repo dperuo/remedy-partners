@@ -1,5 +1,12 @@
-(function() {
+angular
+  .module('app', [])
+  .controller('ctrl', ctrl);
 
-  alert('hello world!')
+function ctrl() {
+    var vm = this;
 
-})(); // IIFE
+    vm.hello = 'world'
+}
+
+
+
