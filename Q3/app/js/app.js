@@ -7,17 +7,15 @@ ctrl.$inject = ['sessionStash'];
 function ctrl(sessionStash) {
   var vm = this;
 
-  vm.newBook       = new Book({});
+  vm.newBook       = {};
   vm.bookList      = [];
   vm.confirmDelete = false;
 
-  // vm.saveNewBook = bookFactory.save(newBook);
-
-
-  // function(newBook) {
-  //   newBook.id = vm.bookList.length + 1
-  //   alert(JSON.stringify(newBook))
-  // }
+  vm.saveNewBook   = function(newBook) {
+    newBook.id = vm.bookList.length + 1;
+    sessionStash.set(newBook.id, newBook);
+    vm.bookList.push(sessionStash.get(newBook.id))
+  }
 
 
 
@@ -31,8 +29,8 @@ function ctrl(sessionStash) {
 
 
 
-function Book (obj) {
 
+function Book (obj) {
   var book = {};
 
   book.id     = obj.id     ||  0;
