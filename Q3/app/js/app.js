@@ -7,12 +7,23 @@ ctrl.$inject = ['sessionStash'];
 function ctrl(sessionStash) {
   var vm = this;
 
+  vm.newBook       = new Book({});
   vm.bookList      = [];
   vm.confirmDelete = false;
 
-  vm.bookList.push(Book({title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
-  vm.bookList.push(Book({title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
-  vm.bookList.push(Book({title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
+  // vm.saveNewBook = bookFactory.save(newBook);
+
+
+  // function(newBook) {
+  //   newBook.id = vm.bookList.length + 1
+  //   alert(JSON.stringify(newBook))
+  // }
+
+
+
+  vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
+  vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
+  vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
 
   vm.deleteBook = function() {alert("I'm deleted!")}
 
@@ -21,8 +32,10 @@ function ctrl(sessionStash) {
 
 
 function Book (obj) {
+
   var book = {};
 
+  book.id     = obj.id     ||  0;
   book.title  = obj.title  || '';
   book.author = obj.author || '';
   book.price  = obj.price  ||  0;
