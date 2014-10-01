@@ -65,17 +65,23 @@
           <td>No.</td>
           <td>Title</td>
           <td>Authod</td>
-          <td>Pice</td>
+          <td>Price</td>
           <td>Qty</td>
+          <td>Update?</td>
           <td>Delete?</td>
         </thead>
         <tbody>
           <tr ng-repeat="book in ctrl.bookList">
             <td>{{$index + 1}}</td>
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>{{book.price | currency}}</td>
-            <td>{{book.qty}}</td>
+            <td><input class="form-control" type="text"   ng-model="book.title"></td>
+            <td><input class="form-control" type="text"   ng-model="book.author"></td>
+            <td><input class="form-control" type="number" ng-model="book.price"></td>
+            <td><input class="form-control" type="number" ng-model="book.qty"></td>
+            <td>
+              <button class="btn btn-default" type="button" ng-click="ctrl.updateBook()" >
+                <span class="glyphicon glyphicon-pencil"></span>
+              </button>
+            </td>
             <td>
               <button class="btn btn-danger" type="button" ng-click="confirmDelete = !confirmDelete" ng-hide="confirmDelete">
                 <span class="glyphicon glyphicon-remove"></span>
@@ -94,7 +100,7 @@
           <td></td>
           <td></td>
           <td>{{ctrl.totalPrice | currency}}</td>
-          <td></td>
+          <td>{{ctrl.totalQty}}</td>
           <td></td>
         </tfoot>
       </table>
