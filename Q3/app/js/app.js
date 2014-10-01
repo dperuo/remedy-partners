@@ -13,6 +13,7 @@ function ctrl(localStash) {
   vm.deleteBook    = deleteBookFn;
   vm.newBook       = {};
   vm.saveNewBook   = saveNewBookFn;
+  vm.totalPrice    = 0;
 
   vm.bookList = (localStash.get(bookList)) ? localStash.get(bookList) : populateBookList();
 
@@ -25,33 +26,23 @@ function ctrl(localStash) {
   }
 
   function deleteBookFn(index) {
-    // var list = localStash.get(bookList)
-    // list.splice(index, 1)
-    // localStash.set(bookList, list)
-    // vm.bookList = localStash.get(bookList);
+    var list = localStash.get(bookList);
+    list.splice(index, 1);
+    localStash.set(bookList, list);
+    vm.bookList = localStash.get(bookList);
   }
 
   function populateBookList () {
-      var list = [];
+    var list = [];
 
-      list.push(Book({id: list.length + 1, title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
-      list.push(Book({id: list.length + 1, title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
-      list.push(Book({id: list.length + 1, title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
+    list.push(Book({title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
+    list.push(Book({title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
+    list.push(Book({title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
 
-      localStash.set('bookList', list);
+    localStash.set('bookList', list);
 
-      return list;
-    }
-
-
-  //   if (localStash.length > 0) {
-  //     for (var i = 0, l = vm.bookList.length; i < l; i++) {
-  //       vm.bookList.push(localStash.get(localStash.key(i)))
-  //     }
-  //   } else {
-  //   }
-  // })()
-
+    return list;
+  }
 }
 
 
@@ -61,7 +52,6 @@ function ctrl(localStash) {
 function Book (obj) {
   var book = {};
 
-  book.id     = obj.id     ||  0;
   book.title  = obj.title  || '';
   book.author = obj.author || '';
   book.price  = obj.price  ||  0;
