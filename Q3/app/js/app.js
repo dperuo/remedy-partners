@@ -5,42 +5,50 @@ angular
 ctrl.$inject = ['localStash'];
 
 function ctrl(localStash) {
-  var vm = this;
+  var vm = this,
+      bookList = 'bookList';
 
-  vm.newBook       = {};
   vm.bookList      = [];
   vm.confirmDelete = false;
-  vm.saveNewBook   = saveNewBookFn;
   vm.deleteBook    = deleteBookFn;
+  vm.newBook       = {};
+  vm.saveNewBook   = saveNewBookFn;
 
-
-
+  vm.bookList = (localStash.get(bookList)) ? localStash.get(bookList) : populateBookList();
 
 
   function saveNewBookFn(newBook) {
-    newBook.id = vm.bookList.length + 1;
-    localStash.set(newBook.id, newBook);
-    vm.bookList.push(localStash.get(newBook.id));
-  };
-
-  function deleteBookFn(index) {
-    vm.bookList.splice(index, 1);
-    // console.log(vm.bookList[index].id)
-    // localStash.remove(vm.bookList[index].id);
+      var list = localStash.get(bookList);
+      list.push(newBook);
+      localStash.set(bookList, list);
+      vm.bookList = localStash.get(bookList);
   }
 
-  // vm.deleteBook = function() {alert("I'm deleted!");};
+  function deleteBookFn(index) {
+    // var list = localStash.get(bookList)
+    // list.splice(index, 1)
+    // localStash.set(bookList, list)
+    // vm.bookList = localStash.get(bookList);
+  }
 
-  // (function populateBookList () {
+  function populateBookList () {
+      var list = [];
+
+      list.push(Book({id: list.length + 1, title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
+      list.push(Book({id: list.length + 1, title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
+      list.push(Book({id: list.length + 1, title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
+
+      localStash.set('bookList', list);
+
+      return list;
+    }
+
 
   //   if (localStash.length > 0) {
   //     for (var i = 0, l = vm.bookList.length; i < l; i++) {
   //       vm.bookList.push(localStash.get(localStash.key(i)))
   //     }
   //   } else {
-  //     vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
-  //     vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
-  //     vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
   //   }
   // })()
 
