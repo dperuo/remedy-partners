@@ -64,12 +64,11 @@ function ctrl(localStash) {
 
 function Book (obj) {
 
-  obj = (obj === undefined) ? {} : obj
+  var obj  = (obj) ? obj : {},
+      book = {};
 
-  var book = {};
-
-  book.title  = obj.title  || '';
-  book.author = obj.author || '';
+  book.title  = obj.title  || 'Paradise Lost';
+  book.author = obj.author || 'John Milton';
   book.price  = obj.price  ||  0;
   book.qty    = obj.qty    ||  1;
 
