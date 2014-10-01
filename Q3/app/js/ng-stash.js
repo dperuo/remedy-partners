@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('stash', [])
+  .module('ngStash', [])
   .factory('sessionStash', sessionStash)
   .factory('localStash', localStash);
 

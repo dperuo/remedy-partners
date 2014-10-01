@@ -1,5 +1,5 @@
 angular
-.module('app', ['stash'])
+.module('app', ['ngStash'])
 .controller('ctrl', ctrl);
 
 ctrl.$inject = ['sessionStash']
