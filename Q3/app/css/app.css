@@ -2,3 +2,9 @@ thead,
 tfoot {
   font-weight: bold;
 }
+
+div[dp-dev] {
+  position: absolute;
+  top:      1em;
+  right:    1em;
+}

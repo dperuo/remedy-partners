@@ -41,8 +41,25 @@ function ctrl(localStash) {
 
     localStash.set('bookList', list);
 
+
+
     return list;
   }
+
+
+
+
+
+
+
+
+
+  vm.cleared = false;
+  vm.clearStorage = function() {
+    localStash.clear();
+    vm.cleared = true;
+  }
+
 }
 
 
