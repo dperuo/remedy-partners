@@ -71,7 +71,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="book in ctrl.bookList">
-            <td>{{book.id}}</td>
+            <td>{{$index + 1}}</td>
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
             <td>{{book.price | currency}}</td>
@@ -83,7 +83,7 @@
               <button class="btn btn-default" type="button" ng-click="confirmDelete = !confirmDelete" ng-show="confirmDelete">
                 <span class="glyphicon glyphicon-ban-circle"></span> cancel
               </button>
-              <button class="btn btn-danger" type="button" ng-click="ctrl.deleteBook()" ng-show="confirmDelete">
+              <button class="btn btn-danger" type="button" ng-click="ctrl.deleteBook($index)" ng-show="confirmDelete">
                 <span class="glyphicon glyphicon-remove"></span> delete
               </button>
             </td>
