@@ -1,3 +1,19 @@
+/*
+ * ngStash.js
+ *
+ * v0.1.0
+ *
+ * An Angular factory for working with localStorage and sessionStorage.
+ *
+ * Released under the MIT License.
+ *
+ * Derek Peruo
+ * http://github.com/dperuo
+ *
+ */
+
+
+
 'use strict';
 
 angular
@@ -11,8 +27,8 @@ localStash.$inject = ['$window'];
 function sessionStash ($window) {
   return {
     set: function (key, value) {
-      var newKey = stringTest(key),
-          newVal = stringTest(value);
+      var newKey = stringify(key),
+          newVal = stringify(value);
 
       $window.sessionStorage.setItem(newKey, newVal);
     },
@@ -32,8 +48,8 @@ function sessionStash ($window) {
 function localStash ($window) {
   return {
     set: function (key, value) {
-      var newKey = stringTest(key),
-          newVal = stringTest(value);
+      var newKey = stringify(key),
+          newVal = stringify(value);
 
       $window.localStorage.setItem(newKey, newVal);
     },
@@ -53,7 +69,7 @@ function localStash ($window) {
 
 
 // --------------- HELPER FUNCTIONS --------------- //
-function stringTest (value) {
-  var testedValue = (typeof(value) === 'string' ) ? value : JSON.stringify(value);
-  return testedValue;
+function stringify (value) {
+  var stringified = (typeof(value) === 'string' ) ? value : JSON.stringify(value);
+  return stringified;
 }
