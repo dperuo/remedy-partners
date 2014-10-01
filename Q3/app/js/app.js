@@ -51,7 +51,6 @@ function ctrl(localStash) {
 
 
 
-
   vm.cleared = false;
   vm.clearStorage = function() {
     localStash.clear();
@@ -63,8 +62,10 @@ function ctrl(localStash) {
 
 
 
-
 function Book (obj) {
+
+  obj = (obj === undefined) ? {} : obj
+
   var book = {};
 
   book.title  = obj.title  || '';
