@@ -18,17 +18,20 @@ function ctrl(localStash) {
   vm.totalPrice    = 0;
   vm.totalQty      = 0;
   vm.updateBook    = updateBookFn;
+  vm.cleared       = false;
 
   vm.bookList   = (localStash.get(bookList))   ? localStash.get(bookList)   : populateBookList();
   vm.totalPrice = (localStash.get(totalPrice)) ? localStash.get(totalPrice) : setTotalPrice();
   vm.totalQty   = (localStash.get(totalQty))   ? localStash.get(totalQty)   : setTotalQty();
-
 
   function saveNewBookFn(newBook) {
       var list = localStash.get(bookList);
       list.push(newBook);
       localStash.set(bookList, list);
       vm.bookList = localStash.get(bookList);
+      vm.newBook = {};
+      setTotalPrice();
+      setTotalQty();
   }
 
   function deleteBookFn(index) {
@@ -36,24 +39,30 @@ function ctrl(localStash) {
     list.splice(index, 1);
     localStash.set(bookList, list);
     vm.bookList = localStash.get(bookList);
+    setTotalPrice();
+    setTotalQty();
   }
 
   function updateBookFn() {
-    var list = [], price = 0, qty = 0;
-    list = vm.bookList;
-    list.forEach(function(value, index) {
+    var list     = vm.bookList,
+        newPrice = 0,
+        newQty   = 0;
 
-      price += (list[index].price) * (list[index].qty);
-      qty += list[index].qty;
+    list.forEach(function(value, index) {
+      newPrice += (list[index].price) * (list[index].qty);
+      newQty   += list[index].qty;
     })
-    localStash.set(totalPrice, price)
-    localStash.set(totalQty, qty)
-    vm.totalPrice = price
-    vm.totalQty = qty
+
+    localStash.set(bookList, list);
+    localStash.set(totalPrice, newPrice);
+    localStash.set(totalQty, newQty);
+
+    vm.bookList   = localStash.get(bookList);
+    vm.totalPrice = newPrice;
+    vm.totalQty   = newQty;
   }
 
   function populateBookList () {
-
     var list = [];
 
     list.push(Book({title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
@@ -99,21 +108,14 @@ function ctrl(localStash) {
     vm.totalQty = sum;
   }
 
-
-
-  vm.cleared = false;
-  vm.clearStorage = function() {
-    localStash.clear();
-    vm.cleared = true;
-  }
+  // vm.clearStorage = function() {
+  //   localStash.clear();
+  //   vm.cleared = true;
+  // }
 
 }
 
-
-
-
 function Book (obj) {
-
   var obj  = (obj) ? obj : {},
       book = {};
 

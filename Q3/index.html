@@ -27,7 +27,7 @@
   </div>
 
   <div class="row">
-    <form class="col-xs-12 form-inline" name="newBookForm" ng-model="ctrl.newBook">
+    <form class="col-xs-12 form-inline" name="ctrl.newBookForm" ng-model="ctrl.newBook">
       <div class="form-group">
         <label class="sr-only" for="title">Title</label>
         <input type="text" class="form-control" id="title" name="title"  ng-model="ctrl.newBook.title"  placeholder="Title">
@@ -79,7 +79,7 @@
             <td><input class="form-control" type="number" ng-model="book.qty"></td>
             <td>
               <button class="btn btn-default" type="button" ng-click="ctrl.updateBook()" >
-                <span class="glyphicon glyphicon-pencil"></span>
+                <span class="glyphicon glyphicon-ok"></span>
               </button>
             </td>
             <td>
@@ -108,7 +108,7 @@
   </div>
 
 <div dp-dev>
-<button class="btn btn-warning btn-xl" type=button ng-click="ctrl.clearStorage()">CLEAR</button>
+<button class="btn btn-warning btn-xl" type=button ng-click="ctrl.clearStorage()">CLEAR STORAGE</button>
 <p class="bg-primary" ng-show="ctrl.cleared" style="text-align:center;">cleared!</p>
 </div>
 

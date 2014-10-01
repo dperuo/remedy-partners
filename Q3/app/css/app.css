@@ -4,6 +4,7 @@ tfoot {
 }
 
 div[dp-dev] {
+  display:  none;
   position: absolute;
   top:      1em;
   right:    1em;
