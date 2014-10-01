@@ -62,6 +62,13 @@ function localStash ($window) {
     },
     clear: function () {
       $window.localStorage.clear();
+    },
+    list: function() {
+      return $window.localStorage;
+    },
+    key: function(key) {
+      var val = $window.localStorage.key(key);
+      return val;
     }
   };
 }

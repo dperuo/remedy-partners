@@ -2,9 +2,9 @@ angular
 .module('bookApp', ['ngStash'])
 .controller('ctrl', ctrl);
 
-ctrl.$inject = ['sessionStash'];
+ctrl.$inject = ['localStash'];
 
-function ctrl(sessionStash) {
+function ctrl(localStash) {
   var vm = this;
 
   vm.newBook       = {};
@@ -13,19 +13,29 @@ function ctrl(sessionStash) {
 
   vm.saveNewBook   = function(newBook) {
     newBook.id = vm.bookList.length + 1;
-    sessionStash.set(newBook.id, newBook);
-    vm.bookList.push(sessionStash.get(newBook.id))
-  }
+    localStash.set(newBook.id, newBook);
+    vm.bookList.push(localStash.get(newBook.id));
+  };
 
 
 
-  vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
-  vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
-  vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
+  vm.deleteBook = function() {alert("I'm deleted!");};
 
-  vm.deleteBook = function() {alert("I'm deleted!")}
+  (function populateBookList () {
+
+    if (localStash.length > 0) {
+      for (var i = 0, l = vm.bookList.length; i < l; i++) {
+        vm.bookList.push(localStash.get(localStash.key(i)))
+      }
+    } else {
+      vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
+      vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
+      vm.bookList.push(Book({id: vm.bookList.length + 1, title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
+    }
+  })()
 
 }
+
 
 
 
