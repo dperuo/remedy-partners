@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="bookApp">
 <head>
   <meta charset="utf-8">
 
@@ -7,10 +7,9 @@
 
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="app/css/app.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
-  <script src="app/js/ng-stash.js"></script>
-  <script src="app/js/app.js"></script>
+
 </head>
 <body class="container" ng-controller="ctrl as ctrl">
 
@@ -23,7 +22,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h2>Add New Book</h2>
-      <pre>{{book | json}}</pre>
+      <!-- <pre>{{ctrl.bookList | json}}</pre> -->
     </div>
   </div>
   <div class="row">
@@ -61,15 +60,53 @@
   <div class="row">
     <div class="col-xs-12">
       <table class="table table-striped">
-
+        <thead>
+          <td>No.</td>
+          <td>Title</td>
+          <td>Authod</td>
+          <td>Pice</td>
+          <td>Qty</td>
+          <td>Delete?</td>
+        </thead>
+        <tbody>
+          <tr ng-repeat="book in ctrl.bookList">
+            <td>{{$index + 1}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price | currency}}</td>
+            <td>{{book.qty}}</td>
+            <td>
+              <button class="btn btn-danger" type="button" ng-click="confirmDelete = !confirmDelete" ng-hide="confirmDelete">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+              <button class="btn btn-default" type="button" ng-click="confirmDelete = !confirmDelete" ng-show="confirmDelete">
+                <span class="glyphicon glyphicon-ban-circle"></span> cancel
+              </button>
+              <button class="btn btn-danger" type="button" ng-click="ctrl.deleteBook()" ng-show="confirmDelete">
+                <span class="glyphicon glyphicon-remove"></span> delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td>Total</td>
+          <td></td>
+          <td></td>
+          <td>Price</td>
+          <td>Qty</td>
+          <td></td>
+        </tfoot>
       </table>
     </div>
   </div>
 
 
 
-
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="app/js/ng-stash.js"></script>
+<script src="app/js/bookFactory.js"></script>
+<script src="app/js/app.js"></script>
 </body>
 </html>
