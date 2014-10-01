@@ -1,9 +1,18 @@
 // angular
-//   .module('app', [])
-//   .controller('ctrl', ctrl);
+//   .module('bookApp')
+//   .factory('bookFactory', bookFactory);
 
-// function ctrl() {
-//   var vm = this;
+// bookFactory.$inject = ['sessionStash'];
+
+// function bookFactory(sessionStash) {
+//   return {
+//     save: function(bookList, book) {
+
+//       var id = bookList.length + 1;
+
+//       sessionStash.set(id)
+//     }
+//   }
 
 //   vm.hello = 'world';
 // }
