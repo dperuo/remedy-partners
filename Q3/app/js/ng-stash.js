@@ -33,7 +33,7 @@ function sessionStash ($window) {
       $window.sessionStorage.setItem(newKey, newVal);
     },
     get: function (key) {
-      var val = $window.sessionStorage.getItem(key);
+      var val = JSON.parse($window.sessionStorage.getItem(key));
       return val;
     },
     remove: function(key) {
@@ -54,7 +54,7 @@ function localStash ($window) {
       $window.localStorage.setItem(newKey, newVal);
     },
     get: function (key) {
-      var val = $window.localStorage.getItem(key);
+      var val = JSON.parse($window.localStorage.getItem(key));
       return val;
     },
     remove: function(key) {

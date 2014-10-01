@@ -7,6 +7,7 @@ ctrl.$inject = ['sessionStash']
 function ctrl(sessionStash) {
   var vm = this;
 
+
 }
 
 
