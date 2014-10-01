@@ -25,7 +25,8 @@ function ctrl(localStash) {
 
   function deleteBookFn(index) {
     vm.bookList.splice(index, 1);
-    localStash.remove(index + 1);
+    // console.log(vm.bookList[index].id)
+    // localStash.remove(vm.bookList[index].id);
   }
 
   // vm.deleteBook = function() {alert("I'm deleted!");};
