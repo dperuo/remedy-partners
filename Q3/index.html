@@ -15,12 +15,19 @@
 <body class="container" ng-controller="ctrl as ctrl">
 
   <div class="row">
-    <div class="col-xs-12"></div>
-    <h1>Q3. Book List</h1>
+    <div class="col-xs-12">
+      <h1>Q3. Book List</h1>
+    </div>
   </div>
 
   <div class="row">
-    <form class="form-inline" name="newBookForm" ng-model="book">
+    <div class="col-xs-12">
+      <h2>Add New Book</h2>
+      <pre>{{book | json}}</pre>
+    </div>
+  </div>
+  <div class="row">
+    <form class="col-xs-12 form-inline" name="newBookForm" ng-model="book">
       <div class="form-group">
         <label class="sr-only" for="title">Title</label>
         <input type="text" class="form-control" id="title" name="title"  ng-model="book.title"  placeholder="Title">
@@ -46,11 +53,20 @@
   </div>
 
   <div class="row">
-    <table class="table table-striped">
-    </table>
+    <div class="col-xs-12">
+      <h2>My Local Library</h2>
+    </div>
   </div>
 
-  <pre>{{book | json}}</pre>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-striped">
+
+      </table>
+    </div>
+  </div>
+
+
 
 
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
