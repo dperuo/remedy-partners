@@ -36,12 +36,10 @@ function ctrl(localStash) {
     var list = [];
 
     list.push(Book({title: "Dracula",       author: "Bram Stoker",         price: 1.99}));
-    list.push(Book({title: "Walden",        author: "Henry David Thoreau", price: 2.99}));
+    list.push(Book({title: "Walden",        author: "Henry David Thoreau", price: 2.99, qty: 2}));
     list.push(Book({title: "Invisible Man", author: "Ralph Ellison",       price: 3.99}));
 
     localStash.set('bookList', list);
-
-
 
     return list;
   }
