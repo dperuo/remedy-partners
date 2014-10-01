@@ -1,11 +1,12 @@
 angular
-  .module('app', [])
-  .controller('ctrl', ctrl);
+.module('app', ['stash'])
+.controller('ctrl', ctrl);
 
-function ctrl() {
-    var vm = this;
+ctrl.$inject = ['sessionStash']
 
-    vm.hello = 'world'
+function ctrl(sessionStash) {
+  var vm = this;
+
 }
 
 
